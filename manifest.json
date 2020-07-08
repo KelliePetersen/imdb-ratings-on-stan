@@ -15,13 +15,14 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.stan.com.au/*", "*://*.omdbapi.com/*"
+        "*://*.stan.com.au/programs/*", "*://*.omdbapi.com/*"
       ],
       "js": ["content.js"]
     },
     {
+      "exclude_matches": ["*://*.stan.com.au/programs/*"],
       "matches": [
-        "*://*.stan.com.au/*", "*://*.google.com/*"
+        "*://*.stan.com.au/*", "*://*.omdbapi.com/*"
       ],
       "js": ["catalogue.js"]
     }
