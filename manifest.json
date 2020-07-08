@@ -18,6 +18,12 @@
         "*://*.stan.com.au/*", "*://*.omdbapi.com/*"
       ],
       "js": ["content.js"]
+    },
+    {
+      "matches": [
+        "*://*.stan.com.au/*", "*://*.google.com/*"
+      ],
+      "js": ["catalogue.js"]
     }
   ]
 }
