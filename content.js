@@ -1,4 +1,7 @@
 document.body.style.border = "5px solid red";
+let programDetails = document.querySelector(".program__details");
+var ratingsContainer = document.createElement("ul");
+programDetails.appendChild(ratingsContainer);
 
 function getShowRatings() {
   let title = document.querySelector('.program__title--logo').alt;
