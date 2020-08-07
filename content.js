@@ -1,8 +1,9 @@
 document.body.style.border = "5px solid red";
 
-function getMovieTitle() {
+function getShowRatings() {
   let title = document.querySelector('.program__title--logo').alt;
-  console.log(title);
+  let data = fetchShowData(title);
+  data.then(data => console.log(data.imdbRating));
 }
 
 async function fetchShowData(title) {
@@ -11,4 +12,4 @@ async function fetchShowData(title) {
   return data;
 }
 
-document.addEventListener('click', getMovieTitle);
+document.addEventListener('click', getShowRatings);
