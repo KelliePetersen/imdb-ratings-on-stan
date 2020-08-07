@@ -5,4 +5,10 @@ function getMovieTitle() {
   console.log(title);
 }
 
+async function fetchShowData(title) {
+  let response = await fetch(`http://www.omdbapi.com/?apikey=436ad94b&t=${title}`);
+  let data = await response.json();
+  return data;
+}
+
 document.addEventListener('click', getMovieTitle);
