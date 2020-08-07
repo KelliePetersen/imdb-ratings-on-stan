@@ -1,12 +1,18 @@
 document.body.style.border = "5px solid red";
-let programDetails = document.querySelector(".program__details");
-var ratingsContainer = document.createElement("ul");
+const programDetails = document.querySelector(".program__details");
+const ratingsContainer = document.createElement("ul");
 programDetails.appendChild(ratingsContainer);
 
 function getShowRatings() {
   let title = document.querySelector('.program__title--logo').alt;
   let data = fetchShowData(title);
-  data.then(data => console.log(data.imdbRating));
+  data.then(data => {
+    console.log(data.imdbRating);
+    let listItem = document.createElement("li");
+    let imdbRating = document.createTextNode(`${data.imdbRating}`);
+    listItem.appendChild(imdbRating);
+    ratingsContainer.appendChild(listItem);
+  });
 }
 
 async function fetchShowData(title) {
