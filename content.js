@@ -6,19 +6,20 @@ programDetails.appendChild(ratingsContainer);
 function getShowRatings() {
   let title = document.querySelector('.program__title--logo').alt;
   let data = fetchShowData(title);
-  data.then(data => {
-    console.log(data.imdbRating);
-    let listItem = document.createElement("li");
-    let imdbRating = document.createTextNode(`${data.imdbRating}`);
-    listItem.appendChild(imdbRating);
-    ratingsContainer.appendChild(listItem);
-  });
+  data.then(data => displayShowRatings(data.imdbRating));
 }
 
 async function fetchShowData(title) {
   let response = await fetch(`http://www.omdbapi.com/?apikey=436ad94b&t=${title}`);
   let data = await response.json();
   return data;
+}
+
+function displayShowRatings(imdbRating) {
+  let listItem = document.createElement("li");
+  let listContent = document.createTextNode(`${imdbRating}`);
+  listItem.appendChild(listContent);
+  ratingsContainer.appendChild(listItem);
 }
 
 document.addEventListener('click', getShowRatings);
